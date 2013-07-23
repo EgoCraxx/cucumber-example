@@ -1,5 +1,7 @@
-Given(/^we visit the "(.*?)" in the "(.*?)" file$/) do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
+Given(/^we visit the "(.*?)" in the "(.*?)" file$/) do |website, secret|
+  secret = YAML::load(File.open(secret + '.yml'))
+  puts secret[website]
+  @browser.goto secret[website]
 end
 
 Given(/^we put this credentials "(.*?)" and password "(.*?)"$/) do |arg1, arg2|

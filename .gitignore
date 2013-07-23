@@ -1,0 +1,3 @@
+coverage/*
+chromedriver.log
+libpeerconnection.log
