@@ -1,4 +1,5 @@
 require 'watir-webdriver'
+require 'watir-webdriver-performance'
 require 'rspec'
 require 'simplecov'
 
