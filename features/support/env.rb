@@ -8,6 +8,7 @@ SimpleCov.start
 Before do
   @browser = Watir::Browser.new :chrome
   @secret = YAML::load(File.open('secret.yml'))
+  @blog = YAML::load(File.open('blog.yml'))
 end
 
 After do |scenario|
