@@ -1,12 +1,8 @@
 Given(/^I'm logged in the website$/) do
   @browser.goto @secret['website']
-  
   @browser.text_field(:id => 'user_username').set @secret['user']
   @browser.text_field(:id => 'user_password').set @secret['password']
   @browser.input(:id => 'user_submit').click
-
-  # load_millisecs = @browser.performance.summary[:response_time]
-  # load_millisecs.should < 30000
 
   @browser.text.should include @secret['message']
 end
@@ -18,8 +14,8 @@ end
 
 Given(/^I click in "(.*?)"$/) do |write_post|
   @browser.link(:text => write_post).click
-  @browser.wait 10
-  @browser.text_field(:id => 'item_title').should exist 
+  Watir::Wait.until { @browser.text_field(:id => 'item_title').exists? }
+  Watir::Wait.until { @browser.frame(:id => 'item_description_ifr').exists? }
 end
 
 Given(/^I fulfill the post form with some content$/) do
@@ -29,5 +25,5 @@ end
 
 Then(/^The post appears as the last one$/) do
   @browser.input(:id => 'item_submit').click
-  @browser.link(:value => @blog['title']).should exist
+  @browser.link(:text => @blog['title']).should exist
 end
