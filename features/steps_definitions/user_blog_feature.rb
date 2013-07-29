@@ -27,3 +27,18 @@ Then(/^The post appears as the last one$/) do
   @browser.input(:id => 'item_submit').click
   @browser.link(:text => @blog['title']).should exist
 end
+
+Given(/^I click in Edit post$/) do
+  @browser.link(:text => @blog['title']).click
+  @browser.link(:text => 'Edit').click
+  Watir::Wait.until { @browser.link(:text => 'Delete').exists? }
+end
+
+Given(/^I click on "(.*?)" and confirm it$/) do |arg1|
+  @browser.link(:text => 'Delete').click
+  @browser.alert.ok
+end
+
+Then(/^the post disappears from the post list$/) do
+  @browser.link(:text => @blog['title']).should_not exist
+end
