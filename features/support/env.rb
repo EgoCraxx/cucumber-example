@@ -11,17 +11,12 @@ Before do
   @blog = YAML::load(File.open('blog.yml'))
 end
 
-After do |scenario|
-# @browser.screenshot.save 'screenshot.png'
-# embed 'screenshot.png', 'image/png'
-end
-
 After do
   @browser.close
 end
   
 at_exit do
-  puts 'finalizing'
+  puts 'final clap'
 end
 
   
