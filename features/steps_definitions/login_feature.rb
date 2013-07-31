@@ -15,7 +15,8 @@ Then(/^we the login screen appears again$/) do
 end
 
 Given(/^we put the good credentials$/) do
-  login_page(@secret['user'], @secret['password'])  
+  # login_page(@secret['user'], @secret['password'])  
+  login_nice
 end
 
 Then(/^we click and we reach the home page with a welcome "(.*?)"$/) do |message|

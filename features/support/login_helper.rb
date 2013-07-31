@@ -7,6 +7,10 @@ module LoginHelper
     @browser.text_field(:id => 'user_password').value.should eq password
   end  
   
+  def login_nice
+    login_page(@secret['user'], @secret['password'])  
+  end  
+  
   def login_click(key_message)
     @browser.input(:id => 'user_submit').click
     @browser.text.should include @secret[key_message]

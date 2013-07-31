@@ -1,4 +1,4 @@
 cucumber-example
 ================
 
-Cucumber example for workshop
+Cucumber example for a workshop
