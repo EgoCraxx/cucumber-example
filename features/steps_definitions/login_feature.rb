@@ -15,7 +15,6 @@ Then(/^we the login screen appears again$/) do
 end
 
 Given(/^we put the good credentials$/) do
-  # login_page(@secret['user'], @secret['password'])  
   login_nice
 end
 
