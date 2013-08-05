@@ -1,3 +1,4 @@
 coverage/*
 chromedriver.log
 libpeerconnection.log
+secret.yml
